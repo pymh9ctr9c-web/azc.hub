@@ -5,200 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AZC Hub - Official Scripts</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #050508;
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            padding: 30px 20px;
-            position: relative;
-        }
-        body::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(5, 5, 8, 0.8);
-            backdrop-filter: blur(4px);
-            z-index: -1;
-        }
-        .container {
-            width: 100%;
-            max-width: 440px;
-            background: rgba(19, 19, 26, 0.75);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 28px;
-            padding: 35px 24px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 0, 0, 0.15);
-            text-align: center;
-            margin: auto;
-        }
-        .logo-glow {
-            font-size: 36px;
-            font-weight: 900;
-            letter-spacing: 2px;
-            color: #ffffff;
-            text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
-            margin-bottom: 5px;
-        }
-        .subtitle {
-            font-size: 13px;
-            color: #a0a0b5;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .section-title {
-            text-align: left;
-            font-size: 13px;
-            color: #ff3333;
-            margin-bottom: 12px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .script-card {
-            background: rgba(27, 27, 38, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 18px;
-            padding: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-        .script-card:hover {
-            border-color: #ff3333;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 0, 0, 0.25);
-        }
-        .script-info {
-            text-align: left;
-            width: 100%;
-        }
-        .script-name {
-            font-size: 16px;
-            font-weight: bold;
-            color: #fff;
-            margin-bottom: 4px;
-        }
-        .script-desc {
-            font-size: 12px;
-            color: #b0b0c5;
-        }
-        .lock-badge {
-            background: rgba(255, 51, 51, 0.15);
-            color: #ff4d4d;
-            border: 1px solid rgba(255, 51, 51, 0.3);
-            padding: 8px 12px;
-            border-radius: 12px;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-        }
-        .footer {
-            margin-top: 20px;
-            font-size: 13px;
-            color: #8c8c9e;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .footer span {
-            color: #ff4d4d;
-            font-weight: bold;
-        }
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #00c853;
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 14px;
-            font-size: 14px;
-            font-weight: bold;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            display: none;
-            z-index: 1000;
-        }
-        .toast.error {
-            background: #ff3333;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; min-height: 100vh; display: flex; justify-content: center; align-items: center; }
+        .container { width: 100%; max-width: 400px; padding: 20px; text-align: center; }
+        .logo-glow { font-size: 28px; font-weight: bold; color: #38bdf8; margin-bottom: 5px; text-shadow: 0 0 15px rgba(56,189,248,0.5); }
+        .subtitle { font-size: 14px; color: #94a3b8; margin-bottom: 30px; }
+        .section-title { font-size: 16px; font-weight: 600; text-align: left; margin-bottom: 12px; color: #cbd5e1; }
+        .script-card { background: #1e293b; border: 1px solid #334155; border-radius: 12px; padding: 16px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: 0.3s; margin-bottom: 15px; }
+        .script-card:hover { border-color: #38bdf8; transform: translateY(-2px); }
+        .script-info { text-align: left; }
+        .script-name { font-size: 16px; font-weight: bold; color: #f1f5f9; margin-bottom: 4px; }
+        .script-desc { font-size: 12px; color: #94a3b8; }
+        .lock-badge { font-size: 18px; }
+        .footer { margin-top: 30px; font-size: 12px; color: #64748b; }
+        .footer span { color: #38bdf8; }
     </style>
 </head>
 <body>
-
     <div class="container">
         <div class="logo-glow">AZC Hub</div>
         <div class="subtitle">Official Scripts Library</div>
-
+        
         <div class="section-title">My Scripts</div>
-
-        <!-- استبدل الرابط أدناه برابط الـ Gist المشفر الخاص بك -->
-        <div class="script-card" onclick="requestKey('loadstring(game:HttpGet(/'https://gist.githubusercontent.com/pymh9ctr9c-web/c6cde39be5bbcd9ac32446c25d549d2b/raw/378fa2eda274580d759245ec7dfff95694b6254c/azc.lua
-\'))()')">
+        
+        <div class="script-card" onclick="requestKey('https://dazzling-salamander-ffa568.netlify.app/azc.lua')">
             <div class="script-info">
                 <div class="script-name">AZC Hub (Main)</div>
                 <div class="script-desc">Protected & Encrypted Script</div>
             </div>
             <div class="lock-badge">🔒</div>
         </div>
+
+        <div class="footer">
+            Discord: <span>a0nlvd</span>
+        </div>
     </div>
-
-    <div class="footer">
-        Discord: <span>a0nlvd</span>
-    </div>
-
-    <div id="toast" class="toast">Loadstring Copied Successfully! 🎉</div>
-
-    <script>
-        const CORRECT_KEY = "VIP--";
-
-        function requestKey(scriptText) {
-            let userKey = prompt("This script is locked. Please enter the Key (VIP--):");
-            
-            if (userKey === null) return;
-
-            if (userKey.trim() === CORRECT_KEY) {
-                navigator.clipboard.writeText(scriptText).then(() => {
-                    showToast("Loadstring Copied Successfully! 🎉", false);
-                });
-            } else {
-                showToast("Incorrect Key! ❌", true);
-            }
-        }
-
-        function showToast(message, isError) {
-            let toast = document.getElementById('toast');
-            toast.innerText = message;
-            if (isError) {
-                toast.classList.add('error');
-            } else {
-                toast.classList.remove('error');
-            }
-            toast.style.display = 'block';
-            setTimeout(() => {
-                toast.style.display = 'none';
-            }, 2500);
-        }
-    </script>
 </body>
 </html>
