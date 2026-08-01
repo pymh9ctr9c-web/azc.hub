@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZC Hub - Scripts</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0b0b0f;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: #13131a;
+            border: 1px solid #222230;
+            border-radius: 24px;
+            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+            margin-top: 20px;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            color: #ffffff;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #7b7b93;
+            margin-bottom: 30px;
+        }
+        .section-title {
+            text-align: right;
+            font-size: 14px;
+            color: #7b7b93;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .script-card {
+            background: #1b1b26;
+            border: 1px solid #2a2a3b;
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: 0.3s;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        .script-card:hover {
+            border-color: #0088ff;
+            transform: translateY(-2px);
+        }
+        .script-info {
+            text-align: right;
+        }
+        .script-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+        .script-desc {
+            font-size: 12px;
+            color: #9494ad;
+        }
+        .copy-btn {
+            background: #0088ff;
+            color: #fff;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .copy-btn:hover {
+            background: #0066cc;
+        }
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            background: #00c853;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: none;
+            animation: fadeInOut 2s forwards;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(20px); }
+            20% { opacity: 1; transform: translateY(0); }
+            80% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(20px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>AZC Hub</h1>
+        <div class="subtitle">Official Scripts Library</div>
+
+        <div class="section-title">MY SCRIPTS :)</div>
+
+        <!-- كارد السكريبت الأول -->
+        <div class="script-card" onclick="copyScript('loadstring(game:HttpGet(\'رابط_الـ_Gist_السري_هنا\'))()')">
+            <div class="script-info">
+                <div class="script-name">AZC Hub (Main)</div>
+                <div class="script-desc">نط لانهائي، سرعة، والمزيد...</div>
+            </div>
+            <button class="copy-btn">نسخ</button>
+        </div>
+
+    </div>
+
+    <div id="toast" class="toast">تم نسخ الـ Loadstring بنجاح! 🎉</div>
+
+    <script>
+        function copyScript(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                let toast = document.getElementById('toast');
+                toast.style.display = 'block';
+                setTimeout(() => {
+                    toast.style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
